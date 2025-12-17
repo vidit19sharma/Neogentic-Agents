@@ -65,3 +65,16 @@ These are the main properties we'll set:
 **instruction:** The agent's guiding prompt. This tells the agent what its goal is and how to behave.
 
 **tools:** A list of [tools](https://google.github.io/adk-docs/tools/) that the agent can use. To start, we'll give it the google_search tool, which lets it find up-to-date information online.
+
+
+## Running Agent 
+
+### 1. Run with command-line interface
+Run your agent using the adk run command-line tool.
+
+    adk run neo_agent_v1
+
+### 2. Run with web interface
+The ADK framework provides web interface you can use to test and interact with your agent. You can start the web interface using the following command:
+
+    adk web --port 8000
