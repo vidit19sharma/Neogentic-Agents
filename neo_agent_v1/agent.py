@@ -57,7 +57,7 @@ retry_config=types.HttpRetryOptions(
 root_agent = Agent(
     name="helpful_assistant",
     model=Gemini(
-        model="gemini-2.5-flash-lite",
+        model="gemini-2.5-flash",
         retry_options=retry_config
     ),
     description="A simple agent that can answer general questions.",

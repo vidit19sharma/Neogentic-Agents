@@ -50,6 +50,26 @@ You've probably used an LLM like Gemini before, where you give it a prompt and i
 An AI Agent takes this one step further. An agent can think, take actions, and observe the results of those actions to give you a better answer.
 
     Prompt -> Agent -> Thought -> Action -> Observation -> Final Answer
+
+### Creating Agent
+Run the adk create command to start a new agent project.
+    
+    adk create my_agent
+or
+
+    adk create sample-agent --model gemini-2.5-flash-lite --api_key $GOOGLE_API_KEY
+
+    #### Agent created
+
+The created agent project has the following structure, with the agent.py file containing the main control code for the agent.
+
+    my_agent/
+
+        agent.py      # main agent code
+        .env          # API keys or project IDs
+        __init__.py
+
+
 ### Configure
 
 We'll configure an Agent by setting its key properties, which tell it what to do and how to operate.
