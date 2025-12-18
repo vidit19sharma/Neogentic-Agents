@@ -33,6 +33,17 @@ A multi-agent system! You used a single **"coordinator"** agent to manage the wo
 
 ‼️ However, relying on an LLM's **instructions to control the order can sometimes be unpredictable.**
 
+### 3. Neo Agent v3 (Blog Post Creation)
+
+    Agent Name  = neo_agent_v3
+
+A system with three specialized agents:
+
+**Outline Agent** - Creates a blog outline for a given topic
+**Writer Agent** - Writes a blog post
+**Editor Agent** - Edits a blog post draft for clarity and structure
+
+
 ## Setup
 
 ### 1. Enviorment Variables
