@@ -1,6 +1,14 @@
 # Neogentic-Agents
 This is my Army of Agents
 
+| S.No | Agent| Name   | Description                       |
+| :------ | :----- | :-------------------------------- |:---|
+|1|`neo_agent_v1`| Simple Monolith Agent| A simple Agent with access to google search |
+|2|`neo_agent_v2` |Research & Summarization System |A system with two specialised agents with AI as coordinator|
+|3|`neo_agent_v3`|Blog Post Creation Agent|A system with 4 specialised agents working in sequence|
+|4|`neo_agent_v4`|Multi Research Team|A system to research in parallel in tech health and finance domain and present findings|
+
+
 ## Agents Summary
 
 ### 1. Neo Agent v1 (Monolithic Agent)
