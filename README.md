@@ -40,8 +40,25 @@ A multi-agent system! You used a single **"coordinator"** agent to manage the wo
 A system with three specialized agents:
 
 **Outline Agent** - Creates a blog outline for a given topic
+
 **Writer Agent** - Writes a blog post
+
 **Editor Agent** - Edits a blog post draft for clarity and structure
+
+### 4. Neo Agent v4 (Multi Research Team)
+
+    Agent Name = neo_agen_v4
+
+A system with four agents:
+
+**Tech Researcher** - Researches AI/ML news and trends
+
+**Health Researcher** - Researches recent medical news and trends
+
+**Finance Researcher** - Researches finance and fintech news and trends
+
+**Aggregator Agent** - Combines all research findings into a single summary
+
 
 
 ## Setup
