@@ -1,6 +1,38 @@
 # Neogentic-Agents
 This is my Army of Agents
 
+## Agents
+
+### 1. Neo Agent v1 (Monolithic Agent)
+
+    Agent Name = neo_agent_v1
+
+**The Problem: The "Do-It-All" Agent**
+
+Single agents can do a lot. But what happens when the task gets complex? A single "monolithic" agent that tries to do research, writing, editing, and fact-checking all at once becomes a problem. Its instruction prompt gets long and confusing. It's hard to debug (which part failed?), difficult to maintain, and often produces unreliable results.
+
+**The Solution: A Team of Specialists**
+
+Instead of one "do-it-all" agent, we can build a **multi-agent** system. This is a team of simple, specialized agents that collaborate, just like a real-world team. Each agent has one clear job (e.g., one agent only does research, another only writes). This makes them easier to build, easier to test, and much more powerful and reliable when working together.
+
+To learn more, check out the documentation related to [LLM agents in ADK](https://google.github.io/adk-docs/agents/llm-agents/).
+
+### Multi Agent Systems
+
+### 2. Neo Agent v2 ( Research & Summarization System)
+
+    Agent Name = neo_agent_v1
+
+System with two specialized agents:
+
+**Research Agent** - Searches for information using Google Search
+
+**Summarizer Agent** - Creates concise summaries from research findings
+
+A multi-agent system! You used a single **"coordinator"** agent to manage the workflow, which is a powerful and flexible pattern.
+
+‼️ However, relying on an LLM's **instructions to control the order can sometimes be unpredictable.**
+
 ## Setup
 
 ### 1. Enviorment Variables
@@ -39,7 +71,7 @@ To create a requirements.txt file, you can use the pip freeze command, which out
     pip install -r requirements.txt
 
 
-## Agents
+## Agent Model
 
 
 🤔What is an AI Agent?
