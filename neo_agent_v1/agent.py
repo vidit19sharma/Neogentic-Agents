@@ -22,7 +22,7 @@ from google.adk.runners import InMemoryRunner
 # gooogle search tool
 from google.adk.tools import google_search
 
-print("✅ ADK components imported successfully.")
+# print("✅ ADK components imported successfully.")
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -65,4 +65,4 @@ root_agent = Agent(
     tools=[google_search],
 )
 
-print("✅ Root Agent defined.")
+# print("✅ Root Agent defined.")
