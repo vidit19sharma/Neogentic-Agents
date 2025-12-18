@@ -1,7 +1,7 @@
 # Neogentic-Agents
 This is my Army of Agents
 
-## Agents
+## Agents Summary
 
 ### 1. Neo Agent v1 (Monolithic Agent)
 
@@ -21,7 +21,7 @@ To learn more, check out the documentation related to [LLM agents in ADK](https:
 
 ### 2. Neo Agent v2 ( Research & Summarization System)
 
-    Agent Name = neo_agent_v1
+    Agent Name = neo_agent_v2
 
 System with two specialized agents:
 

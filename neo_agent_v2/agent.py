@@ -74,7 +74,7 @@ summarizer_agent = Agent(
     ),
     # The instruction is modified to request a bulleted list for a clear output format.
     instruction="""Read the provided research findings: {research_findings}
-Create a concise summary as a bulleted list with 3-5 key points.""",
+Create a concise summary as a bulleted list with 5-7 key points.""",
     output_key="final_summary",
 )
 
