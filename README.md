@@ -13,7 +13,7 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 - [Tech Stack](#-tech-stack)
 - [Setup](#%EF%B8%8F-setup--configuration)
 - [AI Model Agent](#-ai-agent-model)
-- [Running the Agents](%EF%B8%8F-running-the-agents)
+- [Running the Agents](#%EF%B8%8F-running-the-agents)
 - [Project Structure](#-project-structure)
 - [Future Improvements](#-future-improvements)
 - [Contributions](#-contributions)
