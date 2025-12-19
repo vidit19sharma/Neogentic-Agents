@@ -10,14 +10,14 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 - [Overview](#-neogentic-agents)
 - [Table of Contents](#-table-of-contents)
 - [Agent Catalog](#-agent-catalog)
-- [Tech Stack](#-tech-stack))
-- [Setup](#-setup-&-configuration))
+- [Tech Stack](#-tech-stack)
+- [Setup](#-setup--configuration)
 - [AI Model Agent](#-ai-agent-model)
-- [Running the Agents]
-- [Project Structure]
-- [Future Improvements]
-- [Contributions]
-- [Contact]
+- [Running the Agents](#-running-the-agent)
+- [Project Structure](#-project-structure)
+- [Future Improvements](#-future-improvements)
+- [Contributions](#-contributions)
+- [Contact](#-author)
 
 
 ---
@@ -223,7 +223,7 @@ Neogentic-Agents/
 - Cost optimization strategies
 
 ---
-## 🤝 Contributing
+## 🤝 Contributions
 
 Pull requests are welcome. Please open an issue before major changes.
 
