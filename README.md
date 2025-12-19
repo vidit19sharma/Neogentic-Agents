@@ -8,11 +8,11 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 
 ## 📚 Table of Contents
 - [Overview](#-neogentic-agents)
-- [Table of Contents]
-- [Agent Catalog]
-- [Tech Stack]
-- [Setup]
-- [AI Model Agent]
+- [Table of Contents](#-table-of-contents)
+- [Agent Catalog](#-agent-catalog)
+- [Tech Stack](#-tech-stack))
+- [Setup](#-setup-&-configuration))
+- [AI Model Agent](#-ai-agent-model)
 - [Running the Agents]
 - [Project Structure]
 - [Future Improvements]
