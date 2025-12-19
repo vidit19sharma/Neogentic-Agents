@@ -7,7 +7,7 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 ---
 
 ## 📚 Table of Contents
-- [Overview]
+- [Overview](#-neogentic-agents)
 - [Table of Contents]
 - [Agent Catalog]
 - [Tech Stack]
