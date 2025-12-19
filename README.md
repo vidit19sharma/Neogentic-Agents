@@ -6,6 +6,22 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 
 ---
 
+## 📚 Table of Contents
+- [Overview]
+- [Table of Contents]
+- [Agent Catalog]
+- [Tech Stack]
+- [Setup]
+- [AI Model Agent]
+- [Running the Agents]
+- [Project Structure]
+- [Future Improvements]
+- [Contributions]
+- [Contact]
+
+
+---
+
 ## 📦 Agent Catalog
 
 | S.No | **Agent ID** | **Agent Name** | **Description** |
@@ -67,6 +83,14 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 
 ---
 
+## 🧰 Tech Stack
+- Python
+- Google Agent Development Kit (ADK)
+- Gemini LLMs
+- Google Search Tool
+- OpenWeather API
+
+
 ## ⚙️ Setup & Configuration
 
 ### 🔐 Environment Variables
@@ -74,7 +98,7 @@ The project explores multiple **agent architecture patterns**, evolving from a *
     2. for Gemini API Key put use variable : "GEMINI_API_KEY"
     3. for Weather API key use variable : OPEN_WEATHER_API_KEY for understanding and how it works refer to weather.py
 
-## 🐍 Virtual Environment
+### 🐍 Virtual Environment
 A virtual environment is a tool used to isolate specific Python environments on a single machine, allowing you to work on multiple projects with different dependencies and packages without conflicts. This can be especially useful when working on projects that have conflicting package versions or packages that are not compatible with each other.
 
 #### 1. Create a virtual environment
@@ -170,9 +194,42 @@ The ADK framework provides web interface you can use to test and interact with y
 
 ---
 
-## 🚀 Key Learnings
-- Monolithic agents don’t scale
-- Specialized agents improve reliability
-- Parallel agents improve performance
+## 📂 Project Structure
 
+```
+Neogentic-Agents/
+├── .gitignore
+├── README.md
+├── weather.py
+├── neo_agent_v1/        # Version 1 – Simple Monolithic Agent
+│   ├── <files for v1 agent>
+│   └── …
+├── neo_agent_v2/        # Version 2 – Research & Summarization System
+│   ├── <files for v2 agents & coordinator>
+│   └── …
+├── neo_agent_v3/        # Version 3 – Blog Post Creation Multi-Agent
+│   ├── <files for v3 agents>
+│   └── …
+└── neo_agent_v4/        # Version 4 – Multi Research Team Agents
+    ├── <files for v4 agents>
+    └── …
+```
+---
+
+## 🔮 Future Improvements
+- Agent memory and persistence
+- Retry & failure handling
+- Tool result validation
+- Cost optimization strategies
+
+---
+## 🤝 Contributing
+
+Pull requests are welcome. Please open an issue before major changes.
+
+---
+
+## 📬 Author
+Vidit Sharma  
+GitHub: [@vidit19sharma](https://github.com/vidit19sharma)
 
