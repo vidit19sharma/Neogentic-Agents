@@ -1,75 +1,105 @@
-# Neogentic-Agents
-This is my Army of Agents
+# 🧠 Neogentic-Agents  
+## *An Army of Intelligent AI Agents 🤖⚔️*
 
-## Agents Summary
+**Neogentic-Agents** is a collection of **AI agent systems** built using **Google Agent Development Kit (ADK)**.  
+The project explores multiple **agent architecture patterns**, evolving from a **monolithic agent** to **advanced multi-agent systems** with coordination and parallelism.
 
-### 1. Neo Agent v1 (Monolithic Agent)
+---
 
-    Agent Name = neo_agent_v1
-
-**The Problem: The "Do-It-All" Agent**
-
-Single agents can do a lot. But what happens when the task gets complex? A single "monolithic" agent that tries to do research, writing, editing, and fact-checking all at once becomes a problem. Its instruction prompt gets long and confusing. It's hard to debug (which part failed?), difficult to maintain, and often produces unreliable results.
-
-**The Solution: A Team of Specialists**
-
-Instead of one "do-it-all" agent, we can build a **multi-agent** system. This is a team of simple, specialized agents that collaborate, just like a real-world team. Each agent has one clear job (e.g., one agent only does research, another only writes). This makes them easier to build, easier to test, and much more powerful and reliable when working together.
-
-To learn more, check out the documentation related to [LLM agents in ADK](https://google.github.io/adk-docs/agents/llm-agents/).
-
-### Multi Agent Systems
-
-### 2. Neo Agent v2 ( Research & Summarization System)
-
-    Agent Name = neo_agent_v2
-
-System with two specialized agents:
-
-**Research Agent** - Searches for information using Google Search
-
-**Summarizer Agent** - Creates concise summaries from research findings
-
-A multi-agent system! You used a single **"coordinator"** agent to manage the workflow, which is a powerful and flexible pattern.
-
-‼️ However, relying on an LLM's **instructions to control the order can sometimes be unpredictable.**
-
-### 3. Neo Agent v3 (Blog Post Creation)
-
-    Agent Name  = neo_agent_v3
-
-A system with three specialized agents:
-
-**Outline Agent** - Creates a blog outline for a given topic
-
-**Writer Agent** - Writes a blog post
-
-**Editor Agent** - Edits a blog post draft for clarity and structure
-
-### 4. Neo Agent v4 (Multi Research Team)
-
-    Agent Name = neo_agen_v4
-
-A system with four agents:
-
-**Tech Researcher** - Researches AI/ML news and trends
-
-**Health Researcher** - Researches recent medical news and trends
-
-**Finance Researcher** - Researches finance and fintech news and trends
-
-**Aggregator Agent** - Combines all research findings into a single summary
+## 📚 Table of Contents
+- [Overview](#-neogentic-agents)
+- [Table of Contents](#-table-of-contents)
+- [Agent Catalog](#-agent-catalog)
+- [Tech Stack](#-tech-stack)
+- [Setup](#%EF%B8%8F-setup--configuration)
+- [AI Model Agent](#-ai-agent-model)
+- [Running the Agents](#%EF%B8%8F-running-the-agents)
+- [Project Structure](#-project-structure)
+- [Future Improvements](#-future-improvements)
+- [Contributions](#-contributions)
+- [Contact](#-author)
 
 
+---
 
-## Setup
+## 📦 Agent Catalog
 
-### 1. Enviorment Variables
+| S.No | **Agent ID** | **Agent Name** | **Description** |
+|----|------------|--------------|----------------|
+| 1 | `neo_agent_v1` | Monolithic Agent | Simple agent with Google Search access |
+| 2 | `neo_agent_v2` | Research & Summarization System | Two specialized agents coordinated by AI |
+| 3 | `neo_agent_v3` | Blog Post Creation Agent | Sequential multi-agent content pipeline |
+| 4 | `neo_agent_v4` | Multi Research Team | Parallel research across Tech, Health & Finance |
+
+---
+
+## 📌 Agents Summary
+
+## 🟢 1. Neo Agent v1 — **Monolithic Agent**
+- **Agent Name:** `neo_agent_v1`
+
+### ❌ Problem: The “Do-It-All” Agent
+- Research, writing, editing, fact-checking in one agent  
+- Long prompts, hard debugging, poor maintainability
+
+### ✅ Solution: Multi-Agent Design
+- Specialized agents with single responsibility  
+- Easier debugging, scalability, and reliability
+
+📘 [LLM Agents in ADK](https://google.github.io/adk-docs/agents/llm-agents/)
+
+---
+
+## 🟡 2. Neo Agent v2 — **Research & Summarization System**
+- **Agent Name:** `neo_agent_v2`
+
+### 🧩 System Architecture
+- **Research Agent** – Google Search  
+- **Summarizer Agent** – Condensed insights  
+- **Coordinator Agent** – Workflow control
+
+⚠️ LLM-based ordering can be unpredictable
+
+---
+
+## 🔵 3. Neo Agent v3 — **Blog Post Creation Agent**
+- **Agent Name:** `neo_agent_v3`
+
+### ✍️ Workflow
+- **Outline Agent**
+- **Writer Agent**
+- **Editor Agent**
+
+---
+
+## 🔴 4. Neo Agent v4 — **Multi Research Team**
+- **Agent Name:** `neo_agent_v4`
+
+### 🔬 Agents
+- Tech Researcher  
+- Health Researcher  
+- Finance Researcher  
+- Aggregator Agent
+
+---
+
+## 🧰 Tech Stack
+- Python
+- Google Agent Development Kit (ADK)
+- Gemini LLMs
+- Google Search Tool
+- OpenWeather API
+
+
+## ⚙️ Setup & Configuration
+
+### 🔐 Environment Variables
     1. create a .env file and paste the neccessary API keys in it
     2. for Gemini API Key put use variable : "GEMINI_API_KEY"
-    3. for Weather API key use variable : OPEN_WEATHER_API_KEY for understanding and how it works refer to weather.py 
+    3. for Weather API key use variable : OPEN_WEATHER_API_KEY for understanding and how it works refer to weather.py
 
-### 2. Virtual Enviorment
-  A virtual environment is a tool used to isolate specific Python environments on a single machine, allowing you to work on multiple projects with different dependencies and packages without conflicts. This can be especially useful when working on projects that have conflicting package versions or packages that are not compatible with each other.
+### 🐍 Virtual Environment
+A virtual environment is a tool used to isolate specific Python environments on a single machine, allowing you to work on multiple projects with different dependencies and packages without conflicts. This can be especially useful when working on projects that have conflicting package versions or packages that are not compatible with each other.
 
 #### 1. Create a virtual environment
     
@@ -86,7 +116,7 @@ A system with four agents:
 #### 4. Deactivate the virtual environment
     deactivate
 
-### 3. Installation ("requirements.txt")
+### 📦 Dependencies ("requirements.txt")
 In addition to creating and activating a virtual environment, it can be useful to create a requirements.txt file that lists the packages and their versions that your project depends on. This file can be used to easily install all the required packages in a new environment.
 
 To create a requirements.txt file, you can use the pip freeze command, which outputs a list of installed packages and their versions. For example:
@@ -98,11 +128,11 @@ To create a requirements.txt file, you can use the pip freeze command, which out
 
     pip install -r requirements.txt
 
+---
 
-## Agent Model
+## 🧠 AI Agent Model
 
-
-🤔What is an AI Agent?
+### 🤔 What is an AI Agent?
 You've probably used an LLM like Gemini before, where you give it a prompt and it gives you a text response.
 
     Prompt -> LLM -> Text
@@ -111,26 +141,29 @@ An AI Agent takes this one step further. An agent can think, take actions, and o
 
     Prompt -> Agent -> Thought -> Action -> Observation -> Final Answer
 
-### Creating Agent
+
+
+### 🛠️ Creating an Agent
+
 Run the adk create command to start a new agent project.
     
     adk create my_agent
 or
 
     adk create sample-agent --model gemini-2.5-flash-lite --api_key $GOOGLE_API_KEY
+---
 
-    #### Agent created
-
+### 📁 Agent Structure
 The created agent project has the following structure, with the agent.py file containing the main control code for the agent.
 
-    my_agent/
-
-        agent.py      # main agent code
-        .env          # API keys or project IDs
-        __init__.py
-
-
-### Configure
+```
+my_agent/
+├── agent.py            # main agent code
+├── .env                # API keys or project IDs
+└── __init__.py
+```
+---
+### ⚙ Configure 
 
 We'll configure an Agent by setting its key properties, which tell it what to do and how to operate.
 
@@ -146,9 +179,9 @@ These are the main properties we'll set:
 
 **tools:** A list of [tools](https://google.github.io/adk-docs/tools/) that the agent can use. To start, we'll give it the google_search tool, which lets it find up-to-date information online.
 
+---
 
-## Running Agent 
-
+## ▶️ Running the Agents
 ### 1. Run with command-line interface
 Run your agent using the adk run command-line tool.
 
@@ -158,3 +191,45 @@ Run your agent using the adk run command-line tool.
 The ADK framework provides web interface you can use to test and interact with your agent. You can start the web interface using the following command:
 
     adk web --port 8000
+
+---
+
+## 📂 Project Structure
+
+```
+Neogentic-Agents/
+├── .gitignore
+├── README.md
+├── weather.py
+├── neo_agent_v1/        # Version 1 – Simple Monolithic Agent
+│   ├── <files for v1 agent>
+│   └── …
+├── neo_agent_v2/        # Version 2 – Research & Summarization System
+│   ├── <files for v2 agents & coordinator>
+│   └── …
+├── neo_agent_v3/        # Version 3 – Blog Post Creation Multi-Agent
+│   ├── <files for v3 agents>
+│   └── …
+└── neo_agent_v4/        # Version 4 – Multi Research Team Agents
+    ├── <files for v4 agents>
+    └── …
+```
+---
+
+## 🔮 Future Improvements
+- Agent memory and persistence
+- Retry & failure handling
+- Tool result validation
+- Cost optimization strategies
+
+---
+## 🤝 Contributions
+
+Pull requests are welcome. Please open an issue before major changes.
+
+---
+
+## 📬 Author
+Vidit Sharma  
+GitHub: [@vidit19sharma](https://github.com/vidit19sharma)
+
