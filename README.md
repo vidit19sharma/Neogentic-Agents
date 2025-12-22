@@ -30,6 +30,7 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 | 2 | `neo_agent_v2` | Research & Summarization System | Two specialized agents coordinated by AI |
 | 3 | `neo_agent_v3` | Blog Post Creation Agent | Sequential multi-agent content pipeline |
 | 4 | `neo_agent_v4` | Multi Research Team | Parallel research across Tech, Health & Finance |
+| 5 | `neo_agent_v5` | Story Writing Agent | Loop Agent |
 
 ---
 
@@ -80,6 +81,14 @@ The project explores multiple **agent architecture patterns**, evolving from a *
 - Health Researcher  
 - Finance Researcher  
 - Aggregator Agent
+
+---
+## 🟠 5. Neo Agent v5 - **Story Writer**
+- **Agent Name:** `neo_agent_v5`
+### ✍️ Workflow
+ - Initial Writer
+ - Loop Agent -🔁 Crique Agent - 🔁 Refiner Agent
+ - Exit Function
 
 ---
 
@@ -221,6 +230,13 @@ Neogentic-Agents/
 - Retry & failure handling
 - Tool result validation
 - Cost optimization strategies
+
+## 📚 Acknowledgements
+- [Agents in ADK](https://google.github.io/adk-docs/agents/)
+- [Sequential Agents in ADK](https://google.github.io/adk-docs/agents/workflow-agents/sequential-agents/)
+- [Parallel Agents in ADK](https://google.github.io/adk-docs/agents/workflow-agents/parallel-agents/)
+- [Loop Agents in ADK](https://google.github.io/adk-docs/agents/workflow-agents/loop-agents/)
+- [Custom Agents in ADK](https://google.github.io/adk-docs/agents/custom-agents/)
 
 ---
 ## 🤝 Contributions
