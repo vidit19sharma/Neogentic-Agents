@@ -118,9 +118,13 @@ A virtual environment is a tool used to isolate specific Python environments on 
     
     source myenv/bin/activate
 
-#### 3. Activate the virtual environment (Windows)
+#### 3.1 Activate the virtual environment (Windows)
 
     myenv\Scripts\activate.bat
+
+#### 3.1 Activate the virtual environment (Windows PowerShell)
+
+    myenv\Scripts\activate.ps1
 
 #### 4. Deactivate the virtual environment
     deactivate
