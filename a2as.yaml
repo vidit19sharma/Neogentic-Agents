@@ -1,0 +1,244 @@
+manifest:
+  version: "0.1.3"
+  schema: https://a2as.org/cert/schema
+  subject:
+    name: vidit19sharma/neogentic-agents
+    source: https://github.com/vidit19sharma/neogentic-agents
+    branch: main
+    commit: "c28ff89e"
+    scope: [neo_agent_v1/agent.py, neo_agent_v2/agent.py, neo_agent_v3/agent.py, neo_agent_v4/agent.py, neo_agent_v5/agent.py]
+  issued:
+    by: A2AS.org
+    at: '2026-02-11T16:58:20Z'
+    url: https://a2as.org/certified/agents/vidit19sharma/neogentic-agents
+  signatures:
+    digest: sha256:kaKnuACrV030EqQXtzxldFUZM4JXlLHN-qOMZO74xDM
+    key: ed25519:bkNZSjwJ8CI_zLL6NcpOgl5PATOKbM8MtQvwycqxQ-w
+    sig: ed25519:BcXbRZCZ-AbG9MaMD_odBNJLNI6DtJngCaAhkXeVlfTSZYX56R-4CAzdzIB7pqVSv_b-OBA03DZZ_Ocrfii6Cw
+
+agents:
+  aggregator_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: AggregatorAgent
+      instruction: ['Combine these three research findings into a single executive summary:', '**Technology Trends:**', '{tech_research}',
+        '**Health Breakthroughs:**', '{health_research}', '**Finance Innovations:**', '{finance_research}', 'Your summary
+          should highlight common themes, surprising connections, and the most important key takeaways from all three reports.
+          The final summary should be around 200 words.']
+      output_key: executive_summary
+  critic_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: CriticAgent
+      instruction: [You are a constructive story critic. Review the story provided below., 'Story: {current_story}', 'Evaluate
+          the story''s plot, characters, and pacing.', '- If the story is well-written and complete, you MUST respond with
+          the exact phrase: "APPROVED"', '- Otherwise, provide 2-3 specific, actionable suggestions for improvement.']
+      output_key: critique
+  editor_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: EditorAgent
+      instruction: ['Edit this draft: {blog_draft}', 'Your task is to polish the text by fixing any grammatical errors, improving
+          the flow and sentence structure, and enhancing overall clarity.']
+      output_key: final_blog
+  finance_researcher:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [google_search]
+    params:
+      name: FinanceResearcher
+      instruction: ['Research current fintech trends. Include 3 key trends,', 'their market implications, and the future outlook.
+          Keep the report concise (100 words).']
+      output_key: finance_research
+  health_researcher:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [google_search]
+    params:
+      name: HealthResearcher
+      instruction: ['Research recent medical breakthroughs. Include 3 significant advances,', 'their practical applications,
+          and estimated timelines. Keep the report concise (100 words).']
+      output_key: health_research
+  initial_writer_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: InitialWriterAgent
+      instruction: ['Based on the user''s prompt, write the first draft of a short story (around 100-150 words).', 'Output
+          only the story text, with no introduction or explanation.']
+      output_key: current_story
+  outline_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: OutlineAgent
+      instruction: ['Create a blog outline for the given topic with:', 1. A catchy headline, 2. An introduction hook, 3. 3-5
+          main sections with 2-3 bullet points for each, 4. A concluding thought]
+      output_key: blog_outline
+  parallel_research_team:
+    type: instance
+    params:
+      name: ParallelResearchTeam
+      sub_agents: [tech_researcher, health_researcher, finance_researcher]
+  refiner_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [exit_loop]
+    params:
+      name: RefinerAgent
+      instruction: [You are a story refiner. You have a story draft and critique., 'Story Draft: {current_story}', 'Critique:
+          {critique}', Your task is to analyze the critique., '- IF the critique is EXACTLY "APPROVED", you MUST call the
+          `exit_loop` function and nothing else.', '- OTHERWISE, rewrite the story draft to fully incorporate the feedback
+          from the critique.']
+      output_key: current_story
+  research_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [google_search]
+    params:
+      name: ResearchAgent
+      instruction: [You are a specialized research agent. Your only job is to use the, google_search tool to find 2-3 pieces
+          of relevant information on the given topic and present the findings with citations.]
+      output_key: research_findings
+  root_agent.0:
+    type: instance
+    params:
+      name: BlogPipeline
+      sub_agents: [outline_agent, writer_agent, editor_agent]
+      instance: root_agent
+  root_agent.1:
+    type: instance
+    params:
+      name: StoryPipeline
+      instance: root_agent
+      sub_agents: [initial_writer_agent, story_refinement_loop]
+  root_agent.2:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [agent_tool, agent_tool]
+    params:
+      name: ResearchCoordinator
+      instruction: [You are a research coordinator. Your goal is to answer the user's query by orchestrating a workflow.,
+        '1. First, you MUST call the `ResearchAgent` tool to find relevant information on the topic provided by the user.',
+        '2. Next, after receiving the research findings, you MUST call the `SummarizerAgent` tool to create a concise summary.',
+        '3. Finally, present the final summary clearly to the user as your response.']
+      instance: root_agent
+  root_agent.3:
+    type: instance
+    params:
+      name: ResearchSystem
+      instance: root_agent
+      sub_agents: [parallel_research_team, aggregator_agent]
+  root_agent.4:
+    type: instance
+    models: [gemini-2.5-flash]
+    tools: [google_search]
+    params:
+      name: helpful_assistant
+      description: A simple agent that can answer general questions.
+      instruction: [You are a helpful assistant. Use Google Search for current info or if unsure.]
+      instance: root_agent
+  story_refinement_loop:
+    type: instance
+    params:
+      name: StoryRefinementLoop
+      max_iterations: "2"
+      sub_agents: [critic_agent, refiner_agent]
+  summarizer_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: SummarizerAgent
+      instruction: ['Read the provided research findings: {research_findings}', Create a concise summary as a bulleted list
+          with 5-7 key points.]
+      output_key: final_summary
+  tech_researcher:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    tools: [google_search]
+    params:
+      name: TechResearcher
+      instruction: ['Research the latest AI/ML trends. Include 3 key developments,', 'the main companies involved, and the
+          potential impact. Keep the report very concise (100 words).']
+      output_key: tech_research
+  writer_agent:
+    type: instance
+    models: [gemini-2.5-flash-lite]
+    params:
+      name: WriterAgent
+      instruction: ['Following this outline strictly: {blog_outline}', 'Write a brief, 200 to 300-word blog post with an engaging
+          and informative tone.']
+      output_key: blog_draft
+
+models:
+  gemini-2.5-flash:
+    type: function
+    agents: [root_agent.4]
+    params:
+      wrapper: Gemini
+      model: gemini-2.5-flash
+      retry_options: retry_config
+  gemini-2.5-flash-lite:
+    type: function
+    agents: [outline_agent, writer_agent, editor_agent, initial_writer_agent, critic_agent, refiner_agent, research_agent,
+      summarizer_agent, root_agent.2, tech_researcher, health_researcher, finance_researcher, aggregator_agent]
+    params:
+      wrapper: Gemini
+      model: gemini-2.5-flash-lite
+      retry_options: retry_config
+
+tools:
+  agent_tool:
+    type: agent
+    agents: [root_agent.2]
+    params:
+      wrapper: AgentTool
+  exit_loop:
+    type: wrapper
+    agents: [refiner_agent]
+    params:
+      wrapper: FunctionTool
+      wraps: exit_loop
+      description: Call this function ONLY when the critique is 'APPROVED', indicating the story is finished and no more changes
+        are needed.
+  google_search:
+    type: module
+    agents: [research_agent, tech_researcher, health_researcher, finance_researcher, root_agent.4]
+
+teams:
+  parallel_research_team:
+    type: parallel
+    agents: [parallel_research_team, tech_researcher, health_researcher, finance_researcher]
+  root_agent:
+    type: sequential
+    agents: [root_agent, outline_agent, writer_agent, editor_agent]
+  root_agent.1:
+    type: sequential
+    agents: [root_agent.1, initial_writer_agent, story_refinement_loop]
+  root_agent.3:
+    type: sequential
+    agents: [root_agent.3, parallel_research_team, aggregator_agent]
+  story_refinement_loop:
+    type: loop
+    agents: [story_refinement_loop, critic_agent, refiner_agent]
+
+imports:
+  agent: agent
+  Agent: google.adk.agents.Agent
+  AgentTool: google.adk.tools.AgentTool
+  FunctionTool: google.adk.tools.FunctionTool
+  Gemini: google.adk.models.google_llm.Gemini
+  google_search: google.adk.tools.google_search
+  InMemoryRunner: google.adk.runners.InMemoryRunner
+  LoopAgent: google.adk.agents.LoopAgent
+  ParallelAgent: google.adk.agents.ParallelAgent
+  SequentialAgent: google.adk.agents.SequentialAgent
+  types: google.genai.types
+
+functions:
+  exit_loop:
+    type: sync
+    module: neo_agent_v5.agent
